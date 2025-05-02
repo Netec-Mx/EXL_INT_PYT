@@ -1,41 +1,189 @@
-# Nombre del laboratorio 
+# **Dashboard de Clientes por Región con Gráficos Dinámicos**
 
 ## Objetivo de la práctica:
-Al finalizar la práctica, serás capaz de:
-- Objetivo1
-- Objetivo2
-- Objetivo3
 
-## Objetivo Visual 
-Crear un diagrama o imagen que resuma las actividades a realizar, un ejemplo es la siguiente imagen. 
+Al finalizar la práctica, será capaz de importar datos de clientes desde un archivo Excel, analizarlos con `pandas`, agruparlos por región, calcular KPIs como monto total, ticket promedio y volumen de compras, y generar gráficos automáticos con `matplotlib` usando `xlwings` para integrarlos en un archivo Excel final.
 
-![diagrama1](../images/img1.png)
+## Objetivo Visual
+
+![Objetivo Visual](../images/cap4_objetivo.png)
 
 ## Duración aproximada:
-- xx minutos.
+- 40 minutos.
 
-## Tabla de ayuda:
-Agregar una tabla con la información que pueda requerir el participante durante el laboratorio, como versión de software, IPs de servers, usuarios y credenciales de acceso.
-| Contraseña | Correo | Código |
-| --- | --- | ---|
-| Netec2024 | edgardo@netec.com | 123abc |
+---
 
-## Instrucciones 
-<!-- Proporciona pasos detallados sobre cómo configurar y administrar sistemas, implementar soluciones de software, realizar pruebas de seguridad, o cualquier otro escenario práctico relevante para el campo de la tecnología de la información -->
-### Tarea 1. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
+## Instrucciones
 
-Paso 2. <!-- Añadir instrucción -->
+### Tarea 1. **Configurar el entorno de trabajo**
 
-Paso 3. <!-- Añadir instrucción -->
+Paso 1. Crea una carpeta en VS Code llamada `capitulo4_dashboard`.
 
-### Tarea 2. Descripción de la tarea a realizar.
-Paso 1. Debe de relatar el instructor en verbo infinito, claro y conciso cada actividad para ir construyendo paso a paso en el objetivo de la tarea.
+![Tarea 1](../images/cap4_1.png)
 
-Paso 2. <!-- Añadir instrucción -->
+Paso 2. Dentro de esa carpeta, crea un archivo Python llamado `dashboard_clientes.py`.
 
-Paso 3. <!-- Añadir instrucción -->
+![Tarea 1](../images/cap4_2.png)
+
+Paso 3. Instala las librerías necesarias con este comando en la terminal:
+
+```bash
+pip install pandas xlwings matplotlib seaborn openpyxl
+```
+
+![Tarea 1](../images/cap4_3.png)
+
+---
+
+### Tarea 2. **Crear el archivo de datos base en Excel**
+
+Paso 4. Descarga el archivo `clientes_datos.xlsx` del siguiente enlace 
+`https://docs.google.com/spreadsheets/d/1AWQ_fzq19RH2cO3OajvWd9CDXZGuWJYK/edit?usp=sharing&ouid=115294151315643663941&rtpof=true&sd=true`
+
+Haciendo clic en `Archivo > Descargar > Microsoft Excel (.xlsx)`
+
+![Tarea 2](../images/cap4_4.png)
+
+Y ubicarlo en la carpeta `capitulo4_dashboard`
+
+![Tarea 2](../images/cap4_5.png)
+
+---
+
+### Tarea 3. **Leer y analizar los datos**
+
+Paso 5. En el archivo `dashboard_clientes.py`, escribe:
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import xlwings as xw
+import os
+
+# Obtener el directorio actual donde se ejecuta el script
+directorio_actual = os.path.dirname(os.path.abspath(__file__))
+
+# Leer archivo de Excel
+clientes = pd.read_excel('capitulo4_dashboard\\clientes_datos.xlsx', sheet_name='DatosClientes')
+
+# Agrupar por región y calcular KPIs
+resumen = clientes.groupby('region').agg(
+    total_clientes=('id', 'count'),
+    monto_total=('monto_total', 'sum'),
+    compras_totales=('compras', 'sum'),
+    ticket_promedio=('monto_total', 'mean')
+).reset_index()
+
+print(resumen)
+```
+
+![Tarea 3](../images/cap4_6.png)
+
+---
+
+### Tarea 4. **Crear gráficos automáticos**
+
+Paso 6. Añade el siguiente bloque para los gráficos:
+
+```python
+ruta_grafico1 = os.path.join(directorio_actual, 'grafico_monto_total.png')
+ruta_grafico2 = os.path.join(directorio_actual, 'grafico_clientes.png')
+
+# Generar gráfico 1: Monto total por región
+plt.figure(figsize=(8, 6))
+plt.bar(resumen['region'], resumen['monto_total'], color='skyblue')
+plt.title('Monto Total por Región')
+plt.xlabel('Región')
+plt.ylabel('Monto Total')
+plt.savefig(ruta_grafico1)  
+plt.close()
+
+# Generar gráfico 2: Total de clientes por región
+plt.figure(figsize=(8, 6))
+plt.bar(resumen['region'], resumen['total_clientes'], color='lightgreen')
+plt.title('Total de Clientes por Región')
+plt.xlabel('Región')
+plt.ylabel('Total de Clientes')
+plt.savefig(ruta_grafico2)  
+plt.close()
+```
+
+![Tarea 4](../images/cap4_7.png)   
+![Tarea 4](../images/cap4_8.png)  
+
+---
+
+### Tarea 5. **Exportar resultados a Excel con xlwings**
+
+Paso 7. Agrega este bloque al final del script:
+
+```python
+wb = xw.Book()
+
+# Hoja 1: Datos crudos
+hoja_datos = wb.sheets[0]
+hoja_datos.name = 'Datos'
+hoja_datos.range('A1').value = clientes
+
+# Hoja 2: Resumen
+hoja_resumen = wb.sheets.add('Resumen')
+hoja_resumen.range('A1').value = resumen
+
+# Hoja 3: Gráficos
+hoja_graficos = wb.sheets.add('Graficos')
+hoja_graficos.pictures.add(ruta_grafico1, name='Grafico1', update=True, left=hoja_graficos.range('A1').left)
+hoja_graficos.pictures.add(ruta_grafico2, name='Grafico2', update=True, left=hoja_graficos.range('A20').left)
+
+# Guardar el archivo Excel en el directorio del script
+ruta_excel = os.path.join(directorio_actual, 'dashboard_clientes.xlsx')
+wb.save(ruta_excel)
+wb.close()
+```  
+
+![Tarea 5](../images/cap4_9.png)
+
+---
+
+### Tarea 6. **Verificar resultados**
+
+Paso 8. Abre el archivo `dashboard_clientes.xlsx` generado:
+
+- Verifica que haya tres hojas: Datos, Resumen y Graficos.
+- Observa que los gráficos estén bien posicionados.
+- Asegúrate de que los datos del resumen coincidan con los datos originales.
+
+![Tarea 6](../images/cap4_10.png)
+![Tarea 6](../images/cap4_11.png)
+![Tarea 6](../images/cap4_12.png)
+
+---
+
+### Tara 7. **Optimizacion con GitHub Copilot**
+
+Paso 9. Colocar el siguiente prompt en GitHub Copilot `Crear un gráfico de dispersión entre 'monto_total' y 'compras'`
+
+![Tarea 7](../images/cap4_15.png)
+
+Paso 10. Insertar el codigo generado y al ejecutarlo, debe generar una nueva imagen con el grafico
+
+![Tarea 7](../images/cap4_16.png)
+
+Paso 11. Abrir el archivo `dashboard_clientes.xlsx` generado y verificar que el grafico se muestre correctamente
+
+![Tarea 7](../images/cap4_17.png)
+
+Paso 12. Colocar el siguiente prompt en GitHub Copilot para mejorar la calidad del codigo `Modifica el codigo para añadir bloques try-except alrededor de la lectura de los Excel y las exportaciones finales`
+
+![Tarea 7](../images/cap4_18.png)
+
+Paso 13. Insertar el codigo generado generando, teniendo un codigo mas robusto al manejar excepciones, y al ejecutarlo, el funcionamiento debe dar los mismos resultados.
+
+![Tarea 7](../images/cap4_19.png)
 
 ### Resultado esperado
-En esta sección se debe mostrar el resultado esperado de nuestro laboratorio
-![imagen resultado](../images/img3.png)
+
+![Resultado](../images/cap4_17.png)
+![Resultado](../images/cap4_11.png)
+![Resultado](../images/cap4_12.png)
+
