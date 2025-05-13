@@ -19,7 +19,7 @@ Al finalizar esta práctica, será capaz de:
 
 ### Tarea 1. **Configurar el entorno de trabajo**
 
-Paso 1. Crear una carpeta dentro de VsCode llamada `capitulo3_datos`.
+Paso 1. Crear una carpeta dentro de VS Code llamada `capitulo3_datos`.
 
 ![Tarea 1](../images/cap3_1.png)
 
