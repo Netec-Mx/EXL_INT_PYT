@@ -62,7 +62,7 @@ import pandas as pd
 from openpyxl import Workbook
 ```
 
-Paso 8. Carga los datos del archivo `ventas.xlsx` en un `DataFrame` de `pandas`:
+Paso 8. Cargar los datos del archivo `ventas.xlsx` en un `DataFrame` de `pandas`:
 
 ```python
 df = pd.read_excel('ventas.xlsx', sheet_name='Ventas')
