@@ -150,7 +150,7 @@ wb.close()
 
 Paso 8. Abrir el archivo `dashboard_clientes.xlsx` generado:
 
-- Verificar que haya tres hojas: Datos, Resumen y Graficos.
+- Verificar que haya tres hojas: Datos, Resumen y Gráficos.
 - Observar que los gráficos estén bien posicionados.
 - Asegúrate de que los datos del resumen coincidan con los datos originales.
 
@@ -166,7 +166,7 @@ Paso 9. Colocar el siguiente prompt en GitHub Copilot `Crear un gráfico de disp
 
 ![Tarea 7](../images/cap4_15.png)
 
-Paso 10. Insertar el codigo generado y al ejecutarlo, debe generar una nueva imagen con el gráfico.
+Paso 10. Insertar el código generado y al ejecutarlo, debe generar una nueva imágen con el gráfico.
 
 ![Tarea 7](../images/cap4_16.png)
 
@@ -174,7 +174,7 @@ Paso 11. Abrir el archivo `dashboard_clientes.xlsx` generado y verificar que el 
 
 ![Tarea 7](../images/cap4_17.png)
 
-Paso 12. Colocar el siguiente prompt en GitHub Copilot para mejorar la calidad del codigo `Modifica el codigo para añadir bloques try-except alrededor de la lectura de los Excel y las exportaciones finales`
+Paso 12. Colocar el siguiente prompt en GitHub Copilot para mejorar la calidad del código `Modifica el codigo para añadir bloques try-except alrededor de la lectura de los Excel y las exportaciones finales`
 
 ![Tarea 7](../images/cap4_18.png)
 
