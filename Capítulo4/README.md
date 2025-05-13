@@ -1,10 +1,11 @@
-# **Dashboard de Clientes por Región con Gráficos Dinámicos**
+# Práctica 4. Dashboard de clientes por región con gráficos dinámicos
 
 ## Objetivo de la práctica:
 
-Al finalizar la práctica, será capaz de importar datos de clientes desde un archivo Excel, analizarlos con `pandas`, agruparlos por región, calcular KPIs como monto total, ticket promedio y volumen de compras, y generar gráficos automáticos con `matplotlib` usando `xlwings` para integrarlos en un archivo Excel final.
+Al finalizar la práctica, será capaz de:
+- Importar datos de clientes desde un archivo Excel, analizarlos con `pandas`, agruparlos por región, calcular KPIs como monto total, ticket promedio y volumen de compras, así como generar gráficos automáticos con `matplotlib` usando `xlwings` para integrarlos en un archivo Excel final.
 
-## Objetivo Visual
+## Objetivo visual
 
 ![Objetivo Visual](../images/cap4_objetivo.png)
 
@@ -17,15 +18,15 @@ Al finalizar la práctica, será capaz de importar datos de clientes desde un ar
 
 ### Tarea 1. **Configurar el entorno de trabajo**
 
-Paso 1. Crea una carpeta en VS Code llamada `capitulo4_dashboard`.
+Paso 1. Crear una carpeta en VS Code llamada `capitulo4_dashboard`.
 
 ![Tarea 1](../images/cap4_1.png)
 
-Paso 2. Dentro de esa carpeta, crea un archivo Python llamado `dashboard_clientes.py`.
+Paso 2. Dentro de esa carpeta, crear un archivo Python llamado `dashboard_clientes.py`.
 
 ![Tarea 1](../images/cap4_2.png)
 
-Paso 3. Instala las librerías necesarias con este comando en la terminal:
+Paso 3. Instalar las librerías necesarias con este comando en la terminal:
 
 ```bash
 pip install pandas xlwings matplotlib seaborn openpyxl
@@ -37,14 +38,14 @@ pip install pandas xlwings matplotlib seaborn openpyxl
 
 ### Tarea 2. **Crear el archivo de datos base en Excel**
 
-Paso 4. Descarga el archivo `clientes_datos.xlsx` del siguiente enlace 
+Paso 4. Descargar el archivo `clientes_datos.xlsx` del siguiente enlace 
 `https://docs.google.com/spreadsheets/d/1AWQ_fzq19RH2cO3OajvWd9CDXZGuWJYK/edit?usp=sharing&ouid=115294151315643663941&rtpof=true&sd=true`
 
-Haciendo clic en `Archivo > Descargar > Microsoft Excel (.xlsx)`
+Hacer clic en `Archivo > Descargar > Microsoft Excel (.xlsx)`.
 
 ![Tarea 2](../images/cap4_4.png)
 
-Y ubicarlo en la carpeta `capitulo4_dashboard`
+Y ubicarlo en la carpeta `capitulo4_dashboard`.
 
 ![Tarea 2](../images/cap4_5.png)
 
@@ -52,7 +53,7 @@ Y ubicarlo en la carpeta `capitulo4_dashboard`
 
 ### Tarea 3. **Leer y analizar los datos**
 
-Paso 5. En el archivo `dashboard_clientes.py`, escribe:
+Paso 5. En el archivo `dashboard_clientes.py`, escribir:
 
 ```python
 import pandas as pd
@@ -84,7 +85,7 @@ print(resumen)
 
 ### Tarea 4. **Crear gráficos automáticos**
 
-Paso 6. Añade el siguiente bloque para los gráficos:
+Paso 6. Añadir el siguiente bloque para los gráficos:
 
 ```python
 ruta_grafico1 = os.path.join(directorio_actual, 'grafico_monto_total.png')
@@ -116,7 +117,7 @@ plt.close()
 
 ### Tarea 5. **Exportar resultados a Excel con xlwings**
 
-Paso 7. Agrega este bloque al final del script:
+Paso 7. Agregar este bloque al final del script:
 
 ```python
 wb = xw.Book()
@@ -147,10 +148,10 @@ wb.close()
 
 ### Tarea 6. **Verificar resultados**
 
-Paso 8. Abre el archivo `dashboard_clientes.xlsx` generado:
+Paso 8. Abrir el archivo `dashboard_clientes.xlsx` generado:
 
-- Verifica que haya tres hojas: Datos, Resumen y Graficos.
-- Observa que los gráficos estén bien posicionados.
+- Verificar que haya tres hojas: Datos, Resumen y Graficos.
+- Observar que los gráficos estén bien posicionados.
 - Asegúrate de que los datos del resumen coincidan con los datos originales.
 
 ![Tarea 6](../images/cap4_10.png)
@@ -165,11 +166,11 @@ Paso 9. Colocar el siguiente prompt en GitHub Copilot `Crear un gráfico de disp
 
 ![Tarea 7](../images/cap4_15.png)
 
-Paso 10. Insertar el codigo generado y al ejecutarlo, debe generar una nueva imagen con el grafico
+Paso 10. Insertar el codigo generado y al ejecutarlo, debe generar una nueva imagen con el gráfico.
 
 ![Tarea 7](../images/cap4_16.png)
 
-Paso 11. Abrir el archivo `dashboard_clientes.xlsx` generado y verificar que el grafico se muestre correctamente
+Paso 11. Abrir el archivo `dashboard_clientes.xlsx` generado y verificar que el gráfico se muestre correctamente.
 
 ![Tarea 7](../images/cap4_17.png)
 
@@ -177,7 +178,7 @@ Paso 12. Colocar el siguiente prompt en GitHub Copilot para mejorar la calidad d
 
 ![Tarea 7](../images/cap4_18.png)
 
-Paso 13. Insertar el codigo generado generando, teniendo un codigo mas robusto al manejar excepciones, y al ejecutarlo, el funcionamiento debe dar los mismos resultados.
+Paso 13. Insertar el código generado, teniendo un código más robusto al manejar excepciones, y al ejecutarlo, el funcionamiento debe dar los mismos resultados.
 
 ![Tarea 7](../images/cap4_19.png)
 
