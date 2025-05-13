@@ -142,26 +142,26 @@ Paso 14. Para conseguir la integración de GitHub Copilot en VS Code, seguir los
 
 - Instalar la extensión GitHub Copilot entrando al `mercado de extensiones de VS Code > Escribe Copilot en la barra de búsqueda > Instala las extensiones de GitHub Copilot y GitHub Copilot Chat`.
 
-![Tarea 7](/images/cap2_12.png)
-![Tarea 7](/images/cap2_13.png)
+![Tarea 7](../images/cap2_12.png)
+![Tarea 7](../images/cap2_13.png)
 
 - Iniciar sesión con tu cuenta de GitHub para activar la extensión.
 
-![Tarea 7](/images/cap2_14.png)
+![Tarea 7](../images/cap2_14.png)
 
 Paso 15. Generar un código con la siguiente solicitud `Crear un gráfico circular para los datos de cantidad por producto`.
 
-![Tarea 7](/images/cap2_15.png)
+![Tarea 7](../images/cap2_15.png)
 
 Paso 16. Seleccionar la opción de `Aplicar en el editor` y aceptar los cambios una vez los termine de realizar.
 
-![Tarea 7](/images/cap2_16.png)
-![Tarea 7](/images/cap2_17.png)
+![Tarea 7](../images/cap2_16.png)
+![Tarea 7](../images/cap2_17.png)
 
 Paso 17. Abrir el archivo de Excel y verificar el resultado obtenido con la modificación solicitada a GitHub Copilot.
 
-![Tarea 7](/images/cap2_18.png)
+![Tarea 7](../images/cap2_18.png)
 
 ### Resultado esperado
 
-![Resultado esperado](/images/cap2_19.png)
+![Resultado esperado](../images/cap2_19.png)
