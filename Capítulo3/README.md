@@ -1,11 +1,12 @@
 
-# **Importación y exportación de datos entre Excel, CSV, JSON y SQLite**
+# Práctica 3. Importación y exportación de datos entre Excel, CSV, JSON y SQLite
 
 ## Objetivo de la práctica:
 
-Al finalizar esta práctica, será capaz de importar datos desde archivos CSV y JSON, manipularlos con `pandas`, y exportarlos tanto a Excel como a una base de datos SQLite. Todo se realizará con un script en Python usando VS Code en Windows.
+Al finalizar esta práctica, será capaz de:
+- Importar datos desde archivos CSV y JSON, manipularlos con `pandas`, y exportarlos tanto a Excel como a una base de datos SQLite. Todo se realizará con un script en Python usando VS Code en Windows.
 
-## Objetivo Visual
+## Objetivo visual
 
 ![Objetivo Visual](../images/cap3_objetivo.png)
 
@@ -18,15 +19,15 @@ Al finalizar esta práctica, será capaz de importar datos desde archivos CSV y 
 
 ### Tarea 1. **Configurar el entorno de trabajo**
 
-Paso 1. Crea una carpeta dentro de VsCode llamada `capitulo3_datos`
+Paso 1. Crear una carpeta dentro de VsCode llamada `capitulo3_datos`.
 
 ![Tarea 1](../images/cap3_1.png)
 
-Paso 2. Crea un archivo Python en esa carpeta, para ello haz clic derecho sobre la carpeta → **Nuevo archivo** → nómbralo `import_export_datos.py`.
+Paso 2. Crear un archivo Python en esa carpeta, para ello hacer clic derecho sobre la carpeta → **Nuevo archivo** → nómbralo `import_export_datos.py`.
 
 ![Tarea 2](../images/cap3_2.png)
 
-Paso 3. Instala las librerías necesarias. Abre la terminal en VS Code con `Ctrl + ñ` y escribe este comando:
+Paso 3. Instalar las librerías necesarias. Abrir la terminal en VS Code con `Ctrl + ñ` y escribir este comando:
 
 ```bash
 pip install pandas xlwings openpyxl
@@ -39,11 +40,11 @@ pip install pandas xlwings openpyxl
 ### Tarea 2. **Crear los archivos de entrada (CSV y JSON)**
 
 Paso 4. Crear el archivo `productos.csv`
-1. Haz clic derecho sobre la carpeta → **Nuevo archivo** → nómbralo `productos.csv`.
+1. Hacer clic derecho sobre la carpeta → **Nuevo archivo** → nómbralo `productos.csv`.
 
 ![Tarea 2](../images/cap3_4.png)
 
-2. Coloca este contenido en el archivo csv y guardalo:
+2. Colocar este contenido en el archivo csv y guardarlo:
 
 ```csv
 codigo,producto,categoria,precio
@@ -54,12 +55,12 @@ P003,Taza,Hogar,3.75
 
 ![Tarea 2](../images/cap3_5.png)
 
-Paso 5. Crear el archivo `clientes.json`
-1. Haz clic derecho → **Nuevo archivo** → nómbralo `clientes.json`.
+Paso 5. Crear el archivo `clientes.json`.
+1. Hacer clic derecho → **Nuevo archivo** → nómbralo `clientes.json`.
 
 ![Tarea 2](../images/cap3_6.png)
 
-2. Coloca este contenido en el archivo json y guardalo:
+2. Colocar este contenido en el archivo json y guardarlo:
 
 ```json
 [
@@ -75,7 +76,7 @@ Paso 5. Crear el archivo `clientes.json`
 
 ### Tarea 3. **Leer los archivos desde Python usando pandas**
 
-Paso 6. Abre el archivo `import_export_datos.py` y escribe:
+Paso 6. Abrir el archivo `import_export_datos.py` y escribir:
 
 ```python
 import pandas as pd
@@ -102,7 +103,7 @@ Paso 7. Ejecutar el archivo para visualizar los datos cargados correctamente en 
 
 ### Tarea 4. **Exportar los datos a Excel usando xlwings**
 
-Paso 8. Añade el siguiente bloque de código:
+Paso 8. Añadir el siguiente bloque de código:
 
 ```python
 import xlwings as xw
@@ -123,7 +124,7 @@ ws2.range('A1').value = clientes
 wb.save('datos_exportados.xlsx')
 ```
 
-Paso 9. Ejecuta el script nuevamente
+Paso 9. Ejecutar el script nuevamente.
 - Excel se abrirá automáticamente.
 - Se creará un archivo llamado `datos_exportados.xlsx` en tu carpeta.
 - Verifica que haya dos hojas: “Productos” y “Clientes”.
@@ -134,7 +135,7 @@ Paso 9. Ejecuta el script nuevamente
 
 ### Tarea 5. **Guardar los datos en una base de datos SQLite**
 
-Paso 10. Cerrar los archivos de Excel abiertos, y agrega este bloque al final del archivo:
+Paso 10. Cerrar los archivos de Excel abiertos y agregar este bloque al final del archivo:
 
 ```python
 import sqlite3
@@ -154,7 +155,7 @@ print(consulta)
 conn.close()
 ```
 
-Paso 11. Ejecuta el script
+Paso 11. Ejecutar el script.
 - Se creará un archivo `datos.db` en tu carpeta.
 - La terminal mostrará los datos consultados desde la base de datos.
 
@@ -164,7 +165,7 @@ Paso 11. Ejecuta el script
 
 ### Tarea 6. **Verificar los archivos generados**
 
-Paso 12. Asegúrate de tener en tu carpeta:
+Paso 12. Asegurarse de tener en tu carpeta:
 
 - `productos.csv`  
 - `clientes.json`  
@@ -172,13 +173,13 @@ Paso 12. Asegúrate de tener en tu carpeta:
 - `datos_exportados.xlsx` (archivo Excel generado)  
 - `datos.db` (base de datos SQLite)
 
-Paso 13. Abre el archivo Excel
-- Verifica que las dos hojas estén correctamente formateadas.
+Paso 13. Abrir el archivo Excel.
+- Verificar que las dos hojas estén correctamente formateadas.
 
 ![Tarea 6](../images/cap3_11.png)
 ![Tarea 6](../images/cap3_12.png)
 
-Paso 14. (Opcional) Abre la base de datos con un visor SQLite (como [DB Browser for SQLite](https://sqlitebrowser.org/)) si quieres ver las tablas.
+Paso 14. (Opcional) Abrir la base de datos con un visor SQLite (como [DB Browser for SQLite](https://sqlitebrowser.org/)) si quieres ver las tablas.
 
 ![Tarea 6](../images/cap3_13.png)
 ![Tarea 6](../images/cap3_14.png)
