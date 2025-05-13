@@ -140,7 +140,7 @@ Paso 13. Revisar que tenga:
 
 Paso 14. Para conseguir la integración de GitHub Copilot en VS Code, seguir los siguientes pasos:
 
-- Instalar la extensión GitHub Copilot entrando al `mercado de extensiones de VS Code > Escribe Copilot en la barra de búsqueda > Instala las extensiones de GitHub Copilot y GitHub Copilot Chat`.
+- Instalar la extensión GitHub Copilot entrando al `mercado de extensiones de VS Code > Escribir Copilot en la barra de búsqueda > Instalar las extensiones de GitHub Copilot y GitHub Copilot Chat`.
 
 ![Tarea 7](../images/cap2_12.png)
 ![Tarea 7](../images/cap2_13.png)
