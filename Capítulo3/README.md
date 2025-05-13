@@ -127,7 +127,7 @@ wb.save('datos_exportados.xlsx')
 Paso 9. Ejecutar el script nuevamente.
 - Excel se abrirá automáticamente.
 - Se creará un archivo llamado `datos_exportados.xlsx` en tu carpeta.
-- Verifica que haya dos hojas: “Productos” y “Clientes”.
+- Verificar que haya dos hojas: “Productos” y “Clientes”.
 
 ![Tarea 4](../images/cap3_9.png)
 
@@ -165,7 +165,7 @@ Paso 11. Ejecutar el script.
 
 ### Tarea 6. **Verificar los archivos generados**
 
-Paso 12. Asegurarse de tener en tu carpeta:
+Paso 12. Asegurarte de tener en tu carpeta:
 
 - `productos.csv`  
 - `clientes.json`  
